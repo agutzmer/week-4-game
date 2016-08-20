@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+body {
+	width: 962px;
+	font-size: 18px;
+	line-height: 27px;
+}
+.wrapper {
+	width: 1024px;
+	margin: 40px auto;
+}
+
+#title {
+	width: 760px;
+	background: orange;
+        padding: 25px;
+        margin: 5px;  
+}
+
+#directions {
+	width: 760px;
+	height: 100px;
+	padding: 20px;
+	margin: 5px;
+	float: left;
+	background: yellow;
+}
+#targetBox {
+	width: 200px;
+	height: 100px;
+	padding: 20px;
+	margin: 5px;
+	float: left;
+	background: yellow;
+	}
+
+#winLossBox {
+	width: 200px;
+	height: 100px;
+	padding: 20px;
+	margin: 5px;
+	float: left;
+	background: yellow;
+	}
+
+#runningScoreHeader {
+	width: 350px;
+	height: 50px;
+	padding: 10px;
+	margin: 5px;
+	clear: both;
+	background: yellow;
+	}
+
+#runningScoreBox {
+	width: 350px;
+	height: 50px;
+	padding: 10px;
+	margin: 5px;
+	clear: both;
+	background: yellow;
+	}
+
+
+
+@media screen and (max-width: 980px) {
+
+	body {
+		background-color: green;
+	}
+	.wrapper {
+		width: 100%;
+		padding: 20px;
+	}
+	
+}
+
+@media screen and (max-width: 768px) {
+
+	body {
+		background-color: lime;
+	}
+	.wrapper {
+		width: 100%;
+		padding: 20px;
+	}
+
+	#title {
+		width: 500px;
+		background: blue;
+        	padding: 25px;
+       		margin: 10px;	
+		}
+	
+	#team {		
+		width: 250px;
+		height: 100px;
+		margin-left: 130px;
+		
+	}
+
+	#feedback {
+		clear: both;
+		float: left;
+		width: 500px;
+		height: 100px;
+		padding: 10px;
+		margin: 10px;
+		
+	}
+
+}
+
+@media screen and (max-width: 640px) {
+
+	body {
+		background-color: #333;
+	}
+	.wrapper {
+		width: 100%;
+		padding: 20px;
+	}
+	.wrapper {
+		width: 100%;
+		padding: 20px;
+	}
+
+	#title {
+		width: 500px;
+		background: blue;
+        	padding: 25px;
+       		margin: 5px;	
+		}
+	
+	#team {		
+		width: 250px;
+		height: 100px;
+		margin: 15px;
+		
+	}
+
+	#feedback {
+		clear: both;
+		float: left;
+		width: 400px;
+		height: 100px;
+		padding: 10px;
+		margin: 5px;
+		
+	}
+
+}
