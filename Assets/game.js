@@ -1,57 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>week 4 homework</title>
-</head>
-<body>
-<meta charset="UTF-8">
-  <title>Game 1</title>
-  <link rel="stylesheet" type="text/css" href="../assets/reset.css">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- bootswatch space lab  -->
-  <link rel="stylesheet" type="text/css" href="assets/_bootswatch.scss">
-  <link rel="stylesheet" type="text/css" href="assets/style.css">
-
- <div class="container">
- 	<div class="row">
-		<section id="title">
-			<h1>Crystal Collectors!</h1>
-		</section>
-
- 	 	<section id="directions">
-   		 	<p>Directions: blah blah blah blah blah blah ...</p>
-  		</section>
-  	</div>
-	<div class="row">
-			<span id="targetBox"></span>
-			<span id="winLossBox"></span>
-	</div>
-
-</div>
-<button id=lapisButton type="submit"><img src="assets/lapis.jpg" alt="Submit"></button>
-<button id=onyxButton type="submit"><img src="assets/onyx.jpg" alt="Submit"></button>
-<button id=quartzButton type="submit"><img src="assets/quartz.jpg" alt="Submit"></button>
-<button id=turquoizeButton type="submit"><img src="assets/turquoize.jpg" alt="Submit"></button>
-
-<section id="runningScoreHeader">
-   		 	<p>Your Running Score</p>
-</section>
-
-<section id="runningScoreBox">
-</section>
-
-<!-- jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<script type="text/javascript">
-
 var winLossBoxText = "<p>Wins: </p><p>Losses: <p>"
+var targetBoxText ="Your target is: ";
 var wins = 0;
 var winsText = "0";
 var losses = 0;
 var lossesText = "0";
 
+// objects and functions
+//
 var randomizer = { targetNumber: 0, runningTotal: 0, lapisNumber: 0, onyxNumber: 0, quartzNumber: 0, turquoizeNumber: 0,
     chooseRandomNumbers: function () {
       targetNumber = Math.floor((Math.random() * 101) ) + 19; 
@@ -59,12 +14,11 @@ var randomizer = { targetNumber: 0, runningTotal: 0, lapisNumber: 0, onyxNumber:
       onyxNumber =  Math.floor((Math.random() * 11) ) + 1;
       quartzNumber =  Math.floor((Math.random() * 11) ) + 1;
       turquoizeNumber =  Math.floor((Math.random() * 11) ) + 1;
-      runningTotal = wins = losses = 0;
+      runningTotal = 0;
       return (true);
       }};
 
   function displayWinsLosses () {
-
     winsText = wins.toString();
     lossesText = losses.toString();
     winLossBoxText = "Wins: ";
@@ -72,22 +26,31 @@ var randomizer = { targetNumber: 0, runningTotal: 0, lapisNumber: 0, onyxNumber:
     winLossBoxText = winLossBoxText.concat("<p></p>");
     winLossBoxText = winLossBoxText.concat("Losses: ");
     winLossBoxText = winLossBoxText.concat(lossesText);
-
-    $("#winLossBox").html(winLossBoxText);  
- 
+    $("#winLossBox").html(winLossBoxText);   
   }
 
+  function displayTargetNumber () {
+      targetBoxText = "Your target is ";
+      targetBoxText = targetBoxText.concat(targetNumber.toString());
+      $("#targetBox").html(targetBoxText);
+  }
+
+   function displayRunningTotal ( n ) {
+    $("#runningScoreBox").html(n.toString());
+    }
+
+
+// Begin activity
   $( document ).ready(function() {
 
 // do the initial setup of numbers
   randomizer.chooseRandomNumbers ();
-  
-  $("#targetBox").html(targetNumber.toString());
 
+  displayTargetNumber ();
   displayWinsLosses ();
+  displayRunningTotal (0);
 
   $("button").addClass("value");
-
   $("button").on('click', function() { 
 	
 	 switch (this.id) {
@@ -117,7 +80,9 @@ var randomizer = { targetNumber: 0, runningTotal: 0, lapisNumber: 0, onyxNumber:
 			losses++;
       displayWinsLosses ()
 			alert ("You lose!");
-			randomizer.chooseRandomNumbers ();			
+			randomizer.chooseRandomNumbers ();	
+      displayTargetNumber ();		
+      displayRunningTotal (0);
 			}
 			
 		else if (runningTotal == targetNumber ) { 
@@ -125,15 +90,14 @@ var randomizer = { targetNumber: 0, runningTotal: 0, lapisNumber: 0, onyxNumber:
       displayWinsLosses ()
 			alert ("You win!");
 			randomizer.chooseRandomNumbers ();
+      displayTargetNumber ();
+      displayRunningTotal (0);
 			}
 			
 		else {
-      $("#runningScoreBox").html(runningTotal.toString());
+     displayRunningTotal (runningTotal);
       }
 		
    } );  // end of onClick
    
    } );  // end of documentReady
-</script>
-</body>
-</html>

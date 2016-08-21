@@ -12,19 +12,20 @@ body {
 }
 
 #title {
-	width: 760px;
+	width: 300px;
+	height: 80px;
 	background: orange;
-        padding: 25px;
+        padding: 5px;
         margin: 5px;  
 }
 
 #directions {
 	width: 760px;
-	height: 100px;
-	padding: 20px;
+	height: 180px;
+	padding: 10px;
 	margin: 5px;
 	float: left;
-	background: yellow;
+	background: #FFE4C4;
 }
 #targetBox {
 	width: 200px;
@@ -32,7 +33,7 @@ body {
 	padding: 20px;
 	margin: 5px;
 	float: left;
-	background: yellow;
+	background: #228B22;
 	}
 
 #winLossBox {
@@ -41,7 +42,7 @@ body {
 	padding: 20px;
 	margin: 5px;
 	float: left;
-	background: yellow;
+	background: #6495ED;
 	}
 
 #runningScoreHeader {
@@ -50,7 +51,7 @@ body {
 	padding: 10px;
 	margin: 5px;
 	clear: both;
-	background: yellow;
+	background: #6495ED;
 	}
 
 #runningScoreBox {
@@ -59,7 +60,7 @@ body {
 	padding: 10px;
 	margin: 5px;
 	clear: both;
-	background: yellow;
+	background: #6495ED;
 	}
 
 
